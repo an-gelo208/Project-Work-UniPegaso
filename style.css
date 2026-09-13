@@ -1,21 +1,36 @@
-/*
+/* Reset di margin e padding perché di default, nel browser, non sono a zero */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
-COLORI PRESI DALLA COPERTINA DEL REPORT DI SOSTENIBILITA':
-#02616b -> Verde
-#FFCC00 -> Giallo
+/* Con border-box, padding e bordo rientrano nella larghezza dichiarata */
+* {
+  box-sizing: border-box;
+}
 
-*/
+/* Attiva lo scroll animato quando si clicca un anchor link del menu */
+html {
+  scroll-behavior: smooth;
+}
 
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Variabili globali per i colori, ispirati al titolo nella pagina iniziale del report */
 :root {  
   --primary: #02616b;
   --secondary: #ffcc00;
-  --primary-dark: #024b53; /* verde primario un po' più scuro */
+  --primary-dark: #024b53; /* Verde primario leggermente più scuro */
 
+  /* Colori sfumati per navbar e footer */
   --gradient: linear-gradient(
     150deg,
     rgba(2, 97, 107, 1) 40%,
     rgba(255, 204, 0, 1) 100%
-  );
+  ); 
 
   --border-white: rgba(255, 255, 255, 0.5);
   --border-gray: rgba(128, 128, 128, 0.5);
@@ -23,40 +38,19 @@ COLORI PRESI DALLA COPERTINA DEL REPORT DI SOSTENIBILITA':
   --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  /* Con border-box, padding e bordo rientrano nella larghezza dichiarata:
-  un elemento con width 300px e padding 20px resta largo 300px in tutto 
-  (con il default content-box diventerebbe 340 px). Evita gli sbordi */
-  box-sizing: border-box;
-}
-
-/* Attiva lo scroll animato quando si clicca un link "#ancora" del menu. */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  /* Montserrat: È un font geometrico open-source molto elegante. Eni stessa lo ha scelto ufficialmente per la brand identity della sua controllata Plenitude */
-  font-family: "Montserrat", sans-serif;
-}
-
-/* navbar, main, footer -> elementi per centrare il contenuto della pagina riempiendo comunque il colore di sfondo della navbar e del footer bloccando gli elementi interni al centro  */
+/* Proprietà per centrare il contenuto della pagina, con il colore di sfondo della navbar e del footer a larghezza massima, bloccando gli 
+elementi interni al centro */
 .centered {
   max-width: 1200px;
   margin: 0 auto;
 }
 
 header {
-  position: sticky;
+  position: sticky; /* La navbar scorre con la pagina rimanendo incollata sulla parte superiore dello schermo grazie alla proprietà top: 0 */
   top: 0;
-  z-index: 10; /* per non far scorrere un elemento in position: relative sopra la navbar */
+  z-index: 10; /* Per non far scorrere un elemento in position: relative sopra la navbar */
 }
+
 
 /* NAVBAR */
 
@@ -66,13 +60,14 @@ header {
   border-bottom: solid 1px var(--border-white);
 }
 
+/* display: flex -> per orientare gli elementi in orizzontale e con spazio tra loro; 
+flex-wrap: wrap -> per far andare a capo gli elementi quando lo schermo diventa più piccolo. */
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-
 
 .navbar-logo {
   margin-top: 20px;
@@ -89,7 +84,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  gap: 30px;
+  gap: 30px; /* Spazio tra gli elementi */
   margin: 0;
   padding: 0;
 }
@@ -104,6 +99,7 @@ header {
   color: #fff;
 }
 
+/* Pseudo-classe :hover -> cambia il colore dei link della navbar al passaggio del puntatore del mouse */
 .navbar-menu li a:hover {
   color: rgba(255, 255, 255, 0.5);
 }
@@ -113,11 +109,11 @@ header {
 
 section {
   margin: 40px 20px;
-  scroll-margin-top: 120px; /* margine di sicurezza che il browser mantiene in cima a qualsiasi elemento raggiunto tramite un anchor link */
+  scroll-margin-top: 120px; /* Margine di sicurezza che il browser mantiene in cima a qualsiasi elemento raggiunto tramite un anchor link */
 }
 
 p {
-  line-height: 1.4;
+  line-height: 1.4; /* Spazio tra le righe dei paragrafi */
 }
 
 
@@ -137,7 +133,7 @@ p {
 
 .hero-title {
   margin-top: 0;
-  font-size: 3rem; /* 48px */
+  font-size: 3rem;
   margin-bottom: 20px;
   color: var(--secondary);
 }
@@ -145,13 +141,18 @@ p {
 .hero-text {
   max-width: 680px;
   color: #fff;
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem;
   margin-bottom: 40px;
 }
 
+/* display: grid -> per disporre gli elementi in una griglia formata da righe e colonne */
 .hero-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Definisce le colonne. 
+    repeat -> ripete lo schema contenuto nelle parentesi, 
+    auto-fit -> il browser decide quante colonne entrano, 
+    minmax -> larghezza minima che può raggiungere la colonna, 
+    1fr -> è la frazione di spazio libero che può occupare */
   gap: 20px;
   border-top: 1px solid var(--border-white);
   padding-top: 32px;
@@ -159,18 +160,18 @@ p {
 
 .hero-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Numero e didascalia si impilano perché ruota l'asse principale da orizzontale a verticale */
   gap: 5px;
 }
 
 .hero-item .num {
-  font-size: 2rem; /* 32px */
+  font-size: 2rem; /* Equivale a 32px, perché di default 1rem = 16px */
   font-weight: bold;
   color: var(--secondary);
 }
 
 .hero-item .label {
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
   color: #fff;
 }
 
@@ -179,7 +180,7 @@ p {
 
 .report {
   padding: 0 0 72px;
-  margin-top: -35px;
+  margin-top: -35px; /* Margine negativo per far sovrapporre la card del download alla sezione hero */
 }
 
 .download-card {
@@ -190,22 +191,18 @@ p {
   padding: 28px 32px;
   display: flex;
   align-items: center;
-  flex-wrap: wrap; /* se testo e bottone non entrano in una riga, il bottone va a capo */
+  flex-wrap: wrap;
   gap: 28px;
 }
 
 .download-body {
-  flex: 1 1 380px;
-  min-width: 220px;
-  /* 
-  flex: 1 1 380px: i tre valori sono 
-    flex-grow (1 = può allargarsi per riempire lo spazio), 
-    flex-shrink (1 = può restringersi) e 
-    flex-basis (380px = larghezza di partenza prima di allargarsi o restringersi). 
-    Il min-width: 220px è il limite sotto cui non può restringersi, ed è proprio quello che, senza wrap, spingeva fuori il bottone.
-  */
+  flex: 1 1 380px; /* flex-grow = 1 -> può allargarsi per riempire lo spazio; 
+     flex-shrink = 1 -> può restringersi;
+     flex-basis = 380px -> larghezza di partenza prima di allargarsi o restringersi. */
+  min-width: 220px; /* Limite sotto cui non può restringersi */
 }
 
+/* display: inline-block -> permette di applicare le proprietà degli elementi block agli elementi inline */
 .download-tag {
   display: inline-block;
   text-transform: uppercase;
@@ -219,10 +216,11 @@ p {
 }
 
 .download-body h2 {
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem;
   margin-bottom: 0;
 }
 
+/* display: inline-flex -> dentro si comporta come un contenitore flex, ma fuori resta inline */
 .download-button {
   display: inline-flex;
   align-items: center;
@@ -243,7 +241,7 @@ p {
 /* MAIN */
 
 main.centered {
-  max-width: 1240px; /* i 20px di margine laterale delle section */
+  max-width: 1240px;
 }
 
 main h2, h1 {
@@ -255,13 +253,13 @@ main h2, h1 {
 
 .two-columns {
   display: grid;
-  grid-template-columns: 1.5fr 1fr; /* testo più largo, card più strette */
+  grid-template-columns: 1.5fr 1fr; /* Testo più largo, card più strette */
   gap: 40px;
   align-items: start;
 }
 
 .two-columns-text p {
-  margin-top: 0; /* elimina il margine sopra il primo paragrafo, così il testo parte alla stessa altezza delle prima card */
+  margin-top: 0; /* Azzera il margine sopra i paragrafi, così il testo parte alla stessa altezza della prima card */
 }
 
 .card-container {
@@ -283,7 +281,7 @@ main h2, h1 {
 }
 
 .card-item .num {
-  font-size: 1.75rem; /* 28px */
+  font-size: 1.75rem;
   font-weight: bold;
   color: var(--primary-dark);
 }
@@ -311,8 +309,9 @@ main h2, h1 {
   box-shadow: var(--box-shadow);
 }
 
+/* :last-child -> seleziona l'ultimo elemento (child) della card-grid */
 .card:last-child {
-  grid-column: span 2; /* l'ultima card occupa due colonne così da non farle occupare una riga da sola */
+  grid-column: span 2; /* L'ultima card occupa due colonne così da non farle occupare una riga da sola */
 }
 
 .card h3 {
@@ -321,8 +320,10 @@ main h2, h1 {
   color: var(--primary);
 }
 
+/* Pseudo-elemento ::before -> crea un elemento subito prima del contenuto dell'h3;
+display: block -> trasforma un elemento in un elemento block. */
 .card h3::before {
-  content: "";
+  content: ""; /* Obbligatorio, altrimenti l'elemento non viene creato */
   display: block;
   width: 50px;
   height: 5px;
@@ -370,7 +371,7 @@ main h2, h1 {
   }
 
   main.centered {
-    max-width: 1360px; /* + i 20px di margine laterale delle section */
+    max-width: 1360px;
   }
 
   html {
@@ -397,11 +398,11 @@ main h2, h1 {
 }
 
 
-/* MEDIA QUERY per TABLET fino a 1023px*/
+/* MEDIA QUERY per TABLET fino a 1023px */
 
 @media screen and (max-width: 1023px) {
 
-  /* HERO: titolo intermedio e statistiche su 2 colonne invece di 3 + 1 che occupa due spazi */
+  /* HERO: titolo intermedio e statistiche su 2 colonne */
   .hero-title {
     font-size: 2.5rem;
   }
@@ -420,7 +421,7 @@ main h2, h1 {
     flex-direction: row;
   }
 
-  /* le tre card si dividono lo spazio in parti uguali */
+  /* Le tre card si dividono lo spazio in parti uguali */
   .card-item {
     flex: 1 1 0;
   }
@@ -436,7 +437,7 @@ main h2, h1 {
 
 @media screen and (max-width: 767px) {
 
-  /* l'header in position: sticky occuperebbe troppo spazio sullo schermo */
+  /* L'header in position: sticky occuperebbe troppo spazio sullo schermo */
   header {
     position: static;
   }
@@ -462,7 +463,7 @@ main h2, h1 {
     scroll-margin-top: 20px;
   }
 
-  /* HERO: titolo più piccolo e statistiche su due colonne se ci stanno */
+  /* HERO: titolo più piccolo e statistiche su due colonne */
   .hero-title {
     font-size: 2rem;
   }
@@ -490,7 +491,7 @@ main h2, h1 {
 
   .download-body {
     flex: 1 1 auto;
-    min-width: 0; /* annulla il min-width: 220px desktop */
+    min-width: 0; /* Annulla il valore di 220px impostato per il desktop */
   }
 
   .download-body h2 {

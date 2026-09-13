@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="it">
+
   <head>
     <!-- Metadati necessari per codifica caratteri e viewport per la responsività -->
     <meta charset="UTF-8">
@@ -11,8 +12,7 @@
       name="description"
       content="Pagina Web per fini accademici sul Report di Sostenibilità di Eni in Basilicata: Sostenibilità, Ambiente, Attività, Risorse"
     >
-
-    <!-- Titolo che apparen sulla scheda del browser -->
+    <!-- Titolo che appare sulla scheda del browser -->
     <title>Eni in Basilicata | Report Locale di Sostenibilità 2024</title>
 
     <!-- Collegamenti al foglio di stile CSS e all'icona che compare sulla scheda del browser -->
@@ -29,11 +29,10 @@
   </head>
 
   <body>
-    <!-- HEADER con NAVBAR e voci del menù principale -->
 
-    <!-- aria-label: fornisce un'etichetta testuale accessibile a elementi che non hanno un testo visibile -->
+    <!-- HEADER con NAVBAR e voci del menù principale -->
     <header>
-      <nav class="navbar" aria-label="Menu principale">
+      <nav class="navbar" aria-label="Menu principale"> <!-- aria-label: fornisce un'etichetta testuale accessibile a elementi che non hanno un testo visibile -->
         <div class="navbar-container centered">
           <a href="https://www.eni.com/eni-basilicata/it-IT/home.html">
             <img
@@ -55,12 +54,11 @@
     </header>
 
     <!-- SEZIONE HERO con titolo principale e una breve introduzione della pagina -->
-
-    <!-- 
-    aria-labelledby: collega un elemento ad un altro tramite l'id;
-    tabindex="-1": indica che al click del tasto TAB il focus partirà da qui.
-    -->
     <section id="home" class="hero" aria-labelledby="titolo-hero" tabindex="-1">
+      <!-- 
+        aria-labelledby: collega un elemento ad un altro tramite l'id;
+        tabindex="-1": indica che al click del tasto TAB il focus partirà da qui.
+      -->
       <div class="hero-inner centered">
         <h1 class="hero-title" id="titolo-hero">
           Report locale di sostenibilità 2024
@@ -119,7 +117,7 @@
             aria-label="Scarica il pdf del Report di Sostenibilità di Eni in Basilicata"
           >
             <!-- aria-hidde="true" dice agli screen reader di ignorare l'icona, che è puramente decorativa -->
-            <!-- svg dell'icona di download -->
+            <!-- SVG dell'icona di download -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -144,6 +142,7 @@
 
     <!-- MAIN: contenuto principale della pagina diviso in sezioni -->
     <main class="centered">
+
       <!-- SEZIONE CHI SIAMO per presentare l'azienda  -->
       <section id="chi-siamo" aria-labelledby="titolo-chi-siamo">
         <h2 id="titolo-chi-siamo">Chi è eni</h2>
@@ -227,7 +226,7 @@
           di Eni, in cui si collocano i siti operativi lucani.
         </p>
 
-        <!-- Cards le cinque tematiche principali del Report -->
+        <!-- Cards con le cinque tematiche principali del Report -->
         <div class="card-grid">
           <div class="card">
             <h3>Neutralità carbonica al 2050</h3>
