@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <!-- Metadati necessari per codifica caratteri e viewport per la responsività -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Metadati per l'autore della pagina e una breve descrizione di essa -->
+    <meta name="author" content="Angelo Cammarelle">
+    <meta
+      name="description"
+      content="Pagina Web per fini accademici sul Report di Sostenibilità di Eni in Basilicata: Sostenibilità, Ambiente, Attività, Risorse"
+    >
+
+    <!-- Titolo che apparen sulla scheda del browser -->
+    <title>Eni in Basilicata | Report Locale di Sostenibilità 2024</title>
+
+    <!-- Collegamenti al foglio di stile CSS e all'icona che compare sulla scheda del browser -->
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" href="assets/images/logo-favicon.webp" type="image/webp">
+
+    <!-- Collegamenti a Google Fonts per un font più simile a quello del sito ufficiale -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    >
+  </head>
+
+  <body>
+    <!-- HEADER con NAVBAR e voci del menù principale -->
+
+    <!-- aria-label: fornisce un'etichetta testuale accessibile a elementi che non hanno un testo visibile -->
+    <header>
+      <nav class="navbar" aria-label="Menu principale">
+        <div class="navbar-container centered">
+          <a href="https://www.eni.com/eni-basilicata/it-IT/home.html">
+            <img
+              class="navbar-logo"
+              src="assets/images/logo-eni-basilicata.webp"
+              alt="Logo Eni in Basilicata con link al sito ufficiale"
+              width="274"
+              height="40"
+            >
+          </a>
+
+          <ul class="navbar-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#chi-siamo">Chi siamo</a></li>
+            <li><a href="#attivita">Attività</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- SEZIONE HERO con titolo principale e una breve introduzione della pagina -->
+
+    <!-- 
+    aria-labelledby: collega un elemento ad un altro tramite l'id;
+    tabindex="-1": indica che al click del tasto TAB il focus partirà da qui.
+    -->
+    <section id="home" class="hero" aria-labelledby="titolo-hero" tabindex="-1">
+      <div class="hero-inner centered">
+        <h1 class="hero-title" id="titolo-hero">
+          Report locale di sostenibilità 2024
+        </h1>
+        <p class="hero-text">
+          Sosteniamo concretamente una transizione energetica socialmente equa,
+          con l'obiettivo di preservare il nostro pianeta e promuovere l'accesso
+          alle risorse energetiche in maniera efficiente e sostenibile per
+          tutti. (Mission di Eni)
+        </p>
+
+        <!-- Dati relativi al Distretto Meridionale -->
+        <div class="hero-container">
+          <div class="hero-item">
+            <span class="num">470</span>
+            <span class="label"
+              >Dipendenti diretti del Distretto Meridionale</span
+            >
+          </div>
+          <div class="hero-item">
+            <span class="num">3.266</span>
+            <span class="label"
+              >Unità lavorative dell'indotto coinvolte nel 2024</span
+            >
+          </div>
+          <div class="hero-item">
+            <span class="num">-6%</span>
+            <span class="label"
+              >Emissioni dirette GHG (Scope 1) rispetto al 2023</span
+            >
+          </div>
+          <div class="hero-item">
+            <span class="num">€ 10,6 mld</span>
+            <span class="label"
+              >Risorse economiche movimentate dal 1996 al 2024</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEZIONE DOWNLOAD contenente la card con titolo e bottone per scaricare il pdf del Report di Sostenibilità-->
+    <section class="report" aria-labelledby="titolo-download">
+      <div class="report-container centered">
+        <div class="download-card">
+          <div class="download-body">
+            <span class="download-tag">Download del Report</span>
+            <h2 id="titolo-download">
+              Report di Sostenibilità Eni in Basilicata - 2024
+            </h2>
+          </div>
+          <a
+            class="download-button"
+            href="assets/Eni-Local-Report-Basilicata-2024.pdf"
+            download="Eni-Local-Report-Basilicata-2024.pdf"
+            aria-label="Scarica il pdf del Report di Sostenibilità di Eni in Basilicata"
+          >
+            <!-- aria-hidde="true" dice agli screen reader di ignorare l'icona, che è puramente decorativa -->
+            <!-- svg dell'icona di download -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+              width="18"
+              height="18"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+              />
+            </svg>
+            Scarica il PDF
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN: contenuto principale della pagina diviso in sezioni -->
+    <main class="centered">
+      <!-- SEZIONE CHI SIAMO per presentare l'azienda  -->
+      <section id="chi-siamo" aria-labelledby="titolo-chi-siamo">
+        <h2 id="titolo-chi-siamo">Chi è eni</h2>
+        <div class="two-columns">
+          <div class="two-columns-text">
+            <p>
+              Le prime attività di esplorazione per la ricerca di idrocarburi in
+              Basilicata risalgono ai primi anni '80, mentre la fase di sviluppo
+              è iniziata nel 1990 con la concessione "Grumento Nova".
+              Successivamente sono seguite altre concessioni che negli anni sono
+              state accorpate nell'attuale "Concessione di coltivazione Val
+              d'Agri". Oggi Eni è titolare della
+              <strong>Concessione Val d'Agri</strong>, in qualità di operatore
+              con una quota del 61%, insieme a Shell Italia E&amp;P S.p.A., che
+              detiene il restante 39%.
+            </p>
+            <p>
+              <strong>Il Distretto Meridionale (DIME)</strong>, istituito nel
+              2008 a Viggiano (PZ), presidia tutte le attività di esplorazione e
+              produzione di petrolio e gas naturale in Basilicata e in Puglia.
+              L'impianto cardine delle attività del DIME è il
+              <strong>Centro Olio Val d'Agri (COVA)</strong>, in esercizio dal
+              2011, tratta gli idrocarburi estratti dal giacimento lucano, il
+              più grande giacimento di petrolio onshore dell'Europa Occidentale.
+            </p>
+            <p>
+              La rete di produzione attiva è costituita da 21 pozzi su 13
+              piazzole, nei comuni di Viggiano, Calvello, Marsico Nuovo,
+              Grumento Nova, Marsicovetere, Montemurro, Paterno e Tramutola.
+            </p>
+          </div>
+
+          <!-- Cards con alcuni dati di produzione del COVA -->
+          <div class="card-container">
+            <div class="card-item">
+              <span class="num">34.400</span>
+              <span class="label"
+                >Barili di petrolio/giorno - Produzione di idrocarburi
+                complessiva del COVA</span
+              >
+            </div>
+            <div class="card-item">
+              <span class="num">104.000</span>
+              <span class="label"
+                >Barili di petrolio/giorno - Capacità nominale di trattamento
+                del COVA</span
+              >
+            </div>
+            <div class="card-item">
+              <span class="num">2,43 milioni</span>
+              <span class="label"
+                >Sm&sup3; gas/giorno - Produzione di idrocarburi complessiva del
+                COVA</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEZIONE ATTIVITÀ per introdurre i settori in cui opera l'azienda -->
+      <section id="attivita" aria-labelledby="titolo-attivita">
+        <h2 id="titolo-attivita">Le attività di eni</h2>
+        <p>
+          Eni è un'impresa energetica presente lungo tutta la catena del valore:
+          dalla storica attività di esplorazione e produzione di petrlio e gas
+          convenzionali, alla commercializzazione di gas e GNL, fino al
+          downstream petrolifero e petrolchimico, oggi al centro di un profondo
+          processo di trasformazione. L'azienda investe inoltre in nuove energie
+          e servizi orientati alla decarbonizzazione, come rinnovabili (solare
+          ed eolico), biocarburanti, biochimica, cattura e stoccaggio della
+          CO<sub>2</sub>
+          e ricerca su fusione magnetica e riciclo chimico della plastica. In
+          Basilicata, prima regione italiana per volumi estrattivi di
+          idrocarburi, Eni opera con competenze diversificate che vanno
+          dall'esplorazione e produzione fino al risanamento ambientale e alla
+          riqualificazione di aree industriali dismesse. Queste attività
+          rientrano nel percorso verso la neutralità carbonica al 2050 e si
+          accompagnano all'impegno per lo sviluppo del territorio, attraverso il
+          dialogo con le istituzioni locali, la valorizzazione delle persone e
+          la tutela ambientale. Il testo introduce infine la catena del valore
+          di Eni, in cui si collocano i siti operativi lucani.
+        </p>
+
+        <!-- Cards le cinque tematiche principali del Report -->
+        <div class="card-grid">
+          <div class="card">
+            <h3>Neutralità carbonica al 2050</h3>
+            <p>
+              Nell’ambito del piano di decarbonizzazione di Eni verso la
+              neutralità carbonica al 2050, le attività in Basilicata si
+              evolvono in maniera costante per contribuire con soluzioni
+              strategiche alla transizione energetica. Tra queste, il Distretto
+              Meridionale è impegnato a migliorare l’efficienza e il risparmio
+              energetico dei propri impianti, attraverso l’ottimizzazione
+              dell’operatività e delle prestazioni energetiche, al fine di
+              ridurre al minimo gli impatti ambientali ed economici, sia diretti
+              che indiretti, legati all’utilizzo dell’energia. Il Distretto
+              promuove inoltre il coinvolgimento attivo degli stakeholder,
+              attraverso la definizione di accordi, per la promozione di
+              iniziative principalmente incentrate sulla transizione energetica
+              e sull’introduzione di strumenti digitali avanzati.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Protezione dell'ambiente</h3>
+            <p>
+              La crescente attenzione alla tutela dell’ambiente e delle sue
+              risorse si concretizza attraverso diverse azioni adottate da Eni,
+              volte ad una incrementale salvaguardia della qualità dell’aria,
+              una gestione efficiente delle risorse idriche e dei rifiuti, oltre
+              ad un monitoraggio continuo dell’area sotto il profilo sismico e
+              ambientale per prevenire potenziali situazioni di emergenza.
+              Inoltre, Eni promuove dal 2003 un progetto per la preservazione
+              della biodiversità in Val d’Agri.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Valore delle nostre persone</h3>
+            <p>
+              Eni riconosce nelle proprie persone un valore fondamentale per il
+              successo dell’azienda e, per questo, in veste nella loro crescita
+              attraverso percorsi formativi e adotta misure volte alla
+              salvaguardia della salute e della sicurezza sul luogo di lavoro,
+              sia dei propri dipendenti che dei contrattisti, monitorando in
+              maniera costante i processi e implementando iniziative specifiche.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Alleanza per lo sviluppo</h3>
+            <p>
+              Per contribuire allo sviluppo locale delle comunità e i territori
+              in cui opera, Eni ha attivato delle collaborazioni con le
+              istituzioni e gli stakeholder locali. In Basilicata, sono in corso
+              iniziative che spaziano in diversi ambiti, dalla valorizzazione
+              del patrimonio culturale ad una maggiore tutela dell’ambiente e
+              della salute delle persone, fino al sostegno dell’istruzione e
+              alla promozione dell’imprenditoria locale.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Sostenibilità nella catena del valore</h3>
+            <p>
+              Eni promuove lo sviluppo in chiave più sostenibile della propria
+              catena di fornitura, riconoscendone il ruolo chiave nel percorso
+              di trasformazione intrapreso. Attraverso un approccio sistemico ed
+              inclusivo Eni condivide valori, impegni e target con i propri
+              fornitori, supportandoli e coinvolgendoli in un percorso di
+              crescita. Congiuntamente, Eni supporta i propri clienti offrendo
+              soluzioni energetiche all’avanguardia per aiutarli a svolgere un
+              ruolo primario nella transizione energetica e comunica con loro in
+              modo onesto e trasparente, fornendo prodotti e servizi di qualità
+              in linea con le loro esigenze.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER con indirizzo della sede legale, disclaimer e copyright -->
+    <footer class="footer">
+      <div class="footer-container centered">
+        <img
+          class="footer-logo"
+          src="assets/images/logo-eni-footer.webp"
+          alt="Logo Eni in Basilicata nel footer"
+          width="109"
+          height="40"
+        >
+        <div class="footer-address">
+          <p>Eni S.p.A. - Piazzale Enrico Mattei, 1, 00144 Roma (RM)</p>
+        </div>
+        <p class="footer-disclaimer">
+          Contenuti tratti dal Report Locale di Sostenibilità Eni in Basilicata
+          2024 - Pagina sviluppata per fini accademici.
+        </p>
+      </div>
+
+      <p class="copyright">
+        &copy; 2026 Eni - Report Locale di Sostenibilità 2024
+      </p>
+    </footer>
+  </body>
+</html>

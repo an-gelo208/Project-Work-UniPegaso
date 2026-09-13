@@ -1,0 +1,518 @@
+/*
+
+COLORI PRESI DALLA COPERTINA DEL REPORT DI SOSTENIBILITA':
+#02616b -> Verde
+#FFCC00 -> Giallo
+
+*/
+
+:root {  
+  --primary: #02616b;
+  --secondary: #ffcc00;
+  --primary-dark: #024b53; /* verde primario un po' più scuro */
+
+  --gradient: linear-gradient(
+    150deg,
+    rgba(2, 97, 107, 1) 40%,
+    rgba(255, 204, 0, 1) 100%
+  );
+
+  --border-white: rgba(255, 255, 255, 0.5);
+  --border-gray: rgba(128, 128, 128, 0.5);
+
+  --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  /* Con border-box, padding e bordo rientrano nella larghezza dichiarata:
+  un elemento con width 300px e padding 20px resta largo 300px in tutto 
+  (con il default content-box diventerebbe 340 px). Evita gli sbordi */
+  box-sizing: border-box;
+}
+
+/* Attiva lo scroll animato quando si clicca un link "#ancora" del menu. */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Montserrat: È un font geometrico open-source molto elegante. Eni stessa lo ha scelto ufficialmente per la brand identity della sua controllata Plenitude */
+  font-family: "Montserrat", sans-serif;
+}
+
+/* navbar, main, footer -> elementi per centrare il contenuto della pagina riempiendo comunque il colore di sfondo della navbar e del footer bloccando gli elementi interni al centro  */
+.centered {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10; /* per non far scorrere un elemento in position: relative sopra la navbar */
+}
+
+/* NAVBAR */
+
+.navbar {
+  background: var(--gradient);
+  padding: 10px 20px;
+  border-bottom: solid 1px var(--border-white);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.navbar-logo {
+  margin-top: 20px;
+}
+
+.navbar-logo,
+.footer-logo {
+  padding-bottom: 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+.navbar-menu {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-menu li a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* SECTION */
+
+section {
+  margin: 40px 20px;
+  scroll-margin-top: 120px; /* margine di sicurezza che il browser mantiene in cima a qualsiasi elemento raggiunto tramite un anchor link */
+}
+
+p {
+  line-height: 1.4;
+}
+
+
+/* HERO */
+
+.hero {
+  margin: 0;
+  background-color: var(--primary);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.hero-inner {
+  text-align: left;
+  padding: 20px 0;
+}
+
+.hero-title {
+  margin-top: 0;
+  font-size: 3rem; /* 48px */
+  margin-bottom: 20px;
+  color: var(--secondary);
+}
+
+.hero-text {
+  max-width: 680px;
+  color: #fff;
+  font-size: 1.125rem; /* 18px */
+  margin-bottom: 40px;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  border-top: 1px solid var(--border-white);
+  padding-top: 32px;
+}
+
+.hero-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hero-item .num {
+  font-size: 2rem; /* 32px */
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+.hero-item .label {
+  font-size: 0.875rem; /* 14px */
+  color: #fff;
+}
+
+
+/* DOWNLOAD */
+
+.report {
+  padding: 0 0 72px;
+  margin-top: -35px;
+}
+
+.download-card {
+  background-color: #fff;
+  border: 1px solid var(--border-gray);
+  box-shadow: var(--box-shadow);
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* se testo e bottone non entrano in una riga, il bottone va a capo */
+  gap: 28px;
+}
+
+.download-body {
+  flex: 1 1 380px;
+  min-width: 220px;
+  /* 
+  flex: 1 1 380px: i tre valori sono 
+    flex-grow (1 = può allargarsi per riempire lo spazio), 
+    flex-shrink (1 = può restringersi) e 
+    flex-basis (380px = larghezza di partenza prima di allargarsi o restringersi). 
+    Il min-width: 220px è il limite sotto cui non può restringersi, ed è proprio quello che, senza wrap, spingeva fuori il bottone.
+  */
+}
+
+.download-tag {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.875rem;
+  background-color: var(--secondary);
+  color: var(--primary-dark);
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 100px;
+}
+
+.download-body h2 {
+  font-size: 1.5rem; /* 24px */
+  margin-bottom: 0;
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 15px 25px;
+  border-radius: 100px;
+}
+
+.download-button:hover {
+  background-color: var(--primary-dark);
+}
+
+
+/* MAIN */
+
+main.centered {
+  max-width: 1240px; /* i 20px di margine laterale delle section */
+}
+
+main h2, h1 {
+  text-transform: uppercase;
+}
+
+
+/* CHI SIAMO */
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* testo più largo, card più strette */
+  gap: 40px;
+  align-items: start;
+}
+
+.two-columns-text p {
+  margin-top: 0; /* elimina il margine sopra il primo paragrafo, così il testo parte alla stessa altezza delle prima card */
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-item {
+  background-color: #fff;
+  border: 1px solid var(--border-gray);
+  border-left: 4px solid var(--secondary);
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card-item .num {
+  font-size: 1.75rem; /* 28px */
+  font-weight: bold;
+  color: var(--primary-dark);
+}
+
+.card-item .label {
+  font-size: 0.875rem;
+  color: #3d3d3d;
+}
+
+
+/* ATTIVITÀ */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 25px;
+  border: 1px solid var(--border-gray);
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.card:last-child {
+  grid-column: span 2; /* l'ultima card occupa due colonne così da non farle occupare una riga da sola */
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.card h3::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 5px;
+  background-color: var(--secondary);
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #3d3d3d;
+}
+
+
+/* FOOTER */
+
+.footer {
+  background: var(--gradient);
+  padding: 25px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding-bottom: 25px;
+  color: #fff;
+  border-bottom: 1px solid var(--border-white);
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+
+/* MEDIA QUERY per MONITOR GRANDI: contenitore più largo e testo leggermente più grande */
+
+@media screen and (min-width: 1440px) {
+  .centered {
+    max-width: 1320px;
+  }
+
+  main.centered {
+    max-width: 1360px; /* + i 20px di margine laterale delle section */
+  }
+
+  html {
+    font-size: 1.125rem;
+  }
+
+  .hero-title {
+    font-size: 3.25rem;
+  }
+
+  .hero-text {
+    max-width: 760px;
+  }
+
+  .two-columns {
+    gap: 56px;
+  }
+
+  /* ATTIVITÀ: 3 colonne fisse */
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+}
+
+
+/* MEDIA QUERY per TABLET fino a 1023px*/
+
+@media screen and (max-width: 1023px) {
+
+  /* HERO: titolo intermedio e statistiche su 2 colonne invece di 3 + 1 che occupa due spazi */
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* CHI SIAMO: il testo prende tutta la larghezza e le tre card si mettono in fila sotto di esso */
+  .two-columns {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .card-container {
+    flex-direction: row;
+  }
+
+  /* le tre card si dividono lo spazio in parti uguali */
+  .card-item {
+    flex: 1 1 0;
+  }
+
+  /* ATTIVITÀ: griglia a 2 colonne fisse. L'ultima card larga 2 occupa la riga intera */
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* MEDIA QUERY per SMARTPHONE fino a 767px */
+
+@media screen and (max-width: 767px) {
+
+  /* l'header in position: sticky occuperebbe troppo spazio sullo schermo */
+  header {
+    position: static;
+  }
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .navbar-logo {
+    padding-bottom: 12px;
+  }
+
+  .navbar-menu {
+    gap: 8px 16px; /* 8px tra le righe, 16px tra le voci */
+  }
+
+  .navbar-menu li {
+    font-size: 0.875rem;
+  }
+
+  /* SECTION: essendo l'header non più sticky, basta un piccolo margine */
+  section {
+    scroll-margin-top: 20px;
+  }
+
+  /* HERO: titolo più piccolo e statistiche su due colonne se ci stanno */
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .hero-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .hero-item .num {
+    font-size: 1.75rem;
+  }
+
+  /* DOWNLOAD CARD: passa da riga a colonna e il bottone occupa tutta la larghezza */
+  .download-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 24px 20px;
+    gap: 20px;
+  }
+
+  .download-body {
+    flex: 1 1 auto;
+    min-width: 0; /* annulla il min-width: 220px desktop */
+  }
+
+  .download-body h2 {
+    font-size: 1.25rem;
+  }
+
+  .download-button {
+    justify-content: center;
+  }
+
+  /* CHI SIAMO: testo e card in colonna singola */
+  .card-container {
+    flex-direction: column;
+  }
+
+  /* ATTIVITÀ: una card per riga e l'ultima torna a grandezza normale */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card:last-child {
+    grid-column: auto;
+  }
+}
+
