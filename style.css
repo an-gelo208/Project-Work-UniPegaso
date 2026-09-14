@@ -91,7 +91,7 @@ flex-wrap: wrap -> per far andare a capo gli elementi quando lo schermo diventa 
 
 .navbar-menu li {
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .navbar-menu li a {
